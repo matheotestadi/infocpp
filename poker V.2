@@ -1,0 +1,137 @@
+#include <stdio.h>
+#define SIZE 5
+
+void trieur(int tab[], int taille);
+void Paire(int tab[], int taille);
+void Paire2(int tab[], int taille);
+void Hauteur(int tab[], int taille);
+void brelan(int tab[], int taille);
+void full(int tab[], int taille );
+void doublepaire(int tab[], int taille );
+
+int Full;
+int paire;
+int Brelan;
+
+//Paire
+int i1, combi;
+
+//Paire2
+int i2, combi2;
+int paire2, Pairee2;
+
+int main () {
+    int tab[5] = {3,2,4,4,3};
+    trieur(tab, SIZE);
+    printf("\n");
+    doublepaire(tab,SIZE );
+}
+
+void trieur(int tab[], int taille){
+    int i, j, tmp;
+    for (i=0 ; i < SIZE-1; i++){
+        for (j=0 ; j < SIZE-i-1; j++){
+            if (tab[j] < tab[j+1]){
+                tmp = tab[j];
+                tab[j] = tab[j+1];
+                tab[j+1] = tmp;
+            }
+        }
+    }
+    for (i=0; i < SIZE; ++i){
+        printf("%4d", tab[i]);
+    }
+}
+
+void Paire(int tab[], int taille){
+    for (i1=0 ; i1 < SIZE; i1++){
+        //printf("i : position %d:%4d\n",i ,tab[i]);
+        if(tab[i1] == tab[i1+1]){
+            paire = tab[i1];
+            combi = 1;
+        }
+    }
+    if(combi == 1){
+        printf("une pair1 de:%4d  ", tab[i1] = paire);
+        paire = 1;
+        Paire2(tab, SIZE);
+    }
+    else{
+        //printf("pas de paire\n");
+        Hauteur(tab, SIZE);
+    }
+}
+
+void Paire2(int tab[], int taille){
+    for (i2 = 0 ; i2 < SIZE-1; i2++){
+        //printf("i : position %d:%4d\n",i ,tab[i]);
+        if(tab[i2] == tab[i2+1] && tab[i2] != tab[i1]){
+            paire2 = tab[i2];
+            combi2 = 1;
+        }
+    }
+    if(combi2 == 1){
+        printf("\nune paire2 de:%4d  ", tab[i2] = paire2);
+        Pairee2 = 1;
+        if(Brelan == 1){
+            full(tab,SIZE);
+        }
+    }
+    else{
+        //printf("pas de paire\n");
+        //Hauteur(tab, SIZE);
+    }
+}
+
+void brelan(int tab[], int taille){
+    int x, combis;
+    int paires;
+    for (x=0 ; x < SIZE; x++){
+        //printf("i : position %d:%4d\n",i ,tab[i])
+        if (tab[x] == tab[x + 1] && tab[x] == tab[x + 2]) {
+            paires = tab[x];
+            combis = 1;
+        }
+
+    }
+    if(combis == 1){
+        printf("un brelan de:%4d  ", tab[x] = paires);
+        Brelan = 1;
+        Paire(tab, SIZE);
+    }
+    else{
+        //printf("pas de paire\n");
+        Paire(tab, SIZE);
+    }
+}
+
+void full(int tab[], int taille){
+    brelan(tab, SIZE);
+    if(Pairee2 == 1 && Brelan == 1){
+        printf("un full");
+    }
+}
+void Hauteur(int tab[], int taille){
+    int i, combi, hauteur;
+    for (i=0 ; i < SIZE; i++){
+        //printf("i : position %d:%4d\n",i ,tab[i]);
+        if(tab[i] != tab[i+1]){
+            hauteur = tab[i];
+            combi = 2;
+        }
+    }
+    if(combi == 2){
+        printf("une hauteur de:%4d  ", tab[0]);
+    }
+    else{
+        printf("pas de hauteur\n");
+
+    }
+}
+
+void doublepaire(int tab[], int taille ){
+    full(tab, SIZE);
+    if(Pairee2 == 1 && paire == 1){
+        printf("une double paire  ");
+    }
+}
