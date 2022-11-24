@@ -1,3 +1,0 @@
-C:/Users/erwan/CLionProjects/Openclassroom/cmake-build-debug/CMakeFiles/Openclassroom.dir
-C:/Users/erwan/CLionProjects/Openclassroom/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/erwan/CLionProjects/Openclassroom/cmake-build-debug/CMakeFiles/rebuild_cache.dir
